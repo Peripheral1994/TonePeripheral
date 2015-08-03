@@ -20,13 +20,13 @@ Once the project moves into development, the press release can be used as a touc
   > Tone Peripheral
 
 ## Sub-Heading ##
-  > To help musicians write music by providing a quick, online tool for assistance.
+  > To help aspiring musicians learn music theory by providing a quick, online tool for assistance.
 
 ## Summary ##
-  > Tone Peripheral is designed to provide several tools that anyone can access and use to help them write music, even if they're away from an instrument! You can write chord progressions, short melodies, and even play back your work for immediate audio feedback! By keeping this tool online, it can be accessed away from instruments, and your work can be downloaded so you can use it later.
+  > Tone Peripheral is designed to provide several tools that anyone can access and use to help them learn music theory, even if they're away from an instrument! You can write chord progressions, short melodies, and even play back your work for immediate audio feedback! By keeping this tool online, it can be accessed away from instruments, and your work can be downloaded so you can use it later.
 
 ## Problem ##
-  > Composing music doesn't always occur while you're near a piece of paper or an instrument.
+  > Learning about music doesn't always occur while you're near a piece of paper or an instrument.
 
 ## Solution ##
   > Tone Peripheral seeks to fix this by providing a tool that can be accessed anywhere online, so bursts of creativity can be saved and used later.

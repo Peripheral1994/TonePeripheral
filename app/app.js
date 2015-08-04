@@ -50,21 +50,26 @@ $(document).ready(function(){
       if (chord === 'augmented'){
         notes[2] += 1;
       }
-      if (chord === 'dominant 7th'){
-        modifier = notes[2] + 3;
+      if (chord === 'dominant_7th'){
+        notes.push(notes[2] + 3);
       }
-      if (chord === 'major 7th'){
-        modifier = notes[2] + 4;
+      if (chord === 'major_7th'){
+        notes.push(notes[2] + 4);
       }
       if (chord === 'major' || chord === 'minor' || chord === 'augmented' || chord === 'diminished'){
-        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + '</div><form><input type="submit" value="Play Chord"></form></div>');
+        var $chordSet = $('<div id=' + 'chordSet' + chord + '><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + '</div><form><input type="submit" value="Play Chord"></form></div>');
         $('.chords').append($chordSet);
       } else {
-        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + ' ' + noteArray[modifier] + '</div><form><input type="submit" value="Play Chord"></form></div>');
+        var $chordSet = $('<div id=' + 'chordSet' + chord + '><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + ' ' + noteArray[notes[3]] + '</div><form><input type="submit" value="Play Chord"></form></div>');
         $('.chords').append($chordSet);
       }
-      $('.chordSet').on('submit', function(){
-        console.log(notes);
+      $('#chordSet' + chord).on('submit', function(){
+        new Audio('app/notes/' + mp3Array[notes[0]] + '.mp3').play();
+        new Audio('app/notes/' + mp3Array[notes[1]] + '.mp3').play();
+        new Audio('app/notes/' + mp3Array[notes[2]] + '.mp3').play();
+        if (chord === 'dominant_7th' || chord === 'major_7th'){
+          new Audio('app/notes/' + mp3Array[notes[3]] + '.mp3').play();
+        }
         return false;
       });
     };

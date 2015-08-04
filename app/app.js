@@ -57,14 +57,15 @@ $(document).ready(function(){
         modifier = notes[2] + 4;
       }
       if (chord === 'major' || chord === 'minor' || chord === 'augmented' || chord === 'diminished'){
-        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + '</div><input type="submit" value="Play Chord"></div>');
+        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + '</div><form><input type="submit" value="Play Chord"></form></div>');
         $('.chords').append($chordSet);
       } else {
-        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + ' ' + noteArray[modifier] + '</div><input type="submit" value="Play Chord"></div>');
+        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + ' ' + noteArray[modifier] + '</div><form><input type="submit" value="Play Chord"></form></div>');
         $('.chords').append($chordSet);
       }
       $('.chordSet').on('submit', function(){
-        console.log('pie');
+        console.log(notes);
+        return false;
       });
     };
     

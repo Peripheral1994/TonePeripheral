@@ -2,9 +2,13 @@ $(document).ready(function(){
   $('#chordForm').on('submit', function(e){
     //The index of the note is useful for the chord math.
     var noteArray = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'];
-    var note = e.target[0].value;
+    //mp3Array provides the names of the mp3 files in the same index as the noteArray counterpart.
+    var mp3Array = ['A3', 'Bb3', 'B3', 'C4', 'Db4', 'D4', 'Eb4', 'E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4', 'C5', 'Db5', 'D5', 'Eb5', 'E5', 'F5', 'Gb5', 'G5', 'Ab5'];
+    //NOTE: Change e.target... to something more direct (same at 2nd-to-last line of code in this function)!
+    var note = e.target[7].value;
     var noteValue;
     var valArray = [];
+
     //Check if the note is flat (2nd character is 'b'). If so, convert to sharp or other equivalent.
     if (note[1] === '#'){
       noteValue = _.indexOf(noteArray, note[0]) + 1;
@@ -53,19 +57,27 @@ $(document).ready(function(){
         modifier = notes[2] + 4;
       }
       if (chord === 'major' || chord === 'minor' || chord === 'augmented' || chord === 'diminished'){
-        $('.chords').append('<div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + '</div>');
+        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + '</div><input type="submit" value="Play Chord"></div>');
+        $('.chords').append($chordSet);
       } else {
-        $('.chords').append('<div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + ' ' + noteArray[modifier] + '</div>');
+        var $chordSet = $('<div class="chordSet"><div>The ' + chord + ' chord is: ' + noteArray[notes[0]] + ' ' + noteArray[notes[1]] + ' ' + noteArray[notes[2]] + ' ' + noteArray[modifier] + '</div><input type="submit" value="Play Chord"></div>');
+        $('.chords').append($chordSet);
       }
+      $('.chordSet').on('submit', function(){
+        console.log('pie');
+      });
     };
-    chordMaker(valArray, 'major');
-    chordMaker(valArray, 'minor');
-    chordMaker(valArray, 'augmented');
-    chordMaker(valArray, 'diminished')
-    chordMaker(valArray, 'dominant 7th');
-    chordMaker(valArray, 'major 7th');
+    
+    var chordNodes = $('#checkArray :checkbox:checked');
+    if (chordNodes.length === 0){
+      alert('Please choose the chords you would like to see!');
+      return false;
+    }
+    for (var i = 0; i < chordNodes.length; i++){
+      chordMaker(valArray, chordNodes[i].value);
+    }
 
-    e.target[0].value = '';
+    e.target[7].value = '';
     return false;
   });
 });

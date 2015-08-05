@@ -3,18 +3,19 @@
   <head>
     <title>Tone Peripheral</title>
     <script src='bower_components/underscore/underscore-min.js'></script>
-    <script src='bower_components/jquery/jquery.min.js'></script>
+    <script src='bower_components/jquery/dist/jquery.min.js'></script>
     <script src='app/app.js'></script>
     <link rel="stylesheet" type="text/css" href="cssreset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
   </head>
   <body>
     <ul class='topbar'>
-      <li class='chordbar'>Chords</li>
+      <li class='chordbar'>Chords and </li>
       <li class='progbar'>Progressions</li>
     <ul>
     <form id='chordForm'>
-      <p>Please type in a musical note (A-G uppercase only, # for sharp, b for flat) to get a collection of its chords.</p>
+      <p>Please type in a musical note (A-G uppercase only, # for sharp, b for flat) to get a collection of its chords and some sample progressions!</p>
       <fieldset id='checkArray'>
         <input type='checkbox' class='chordCheck' value='major'>Major<br>
         <input type='checkbox' class='chordCheck' value='minor'>Minor<br>
@@ -26,7 +27,10 @@
       <input type='text' placeholder='Please type a note.' class='chordInput'>
       <input type='submit'>
     </form>
-    <div class ='chords'>
+    <div class='chords'>
+    </div>
+    <div class='progressions'>
+      Test.
     </div>
   </body> 
 </html>
